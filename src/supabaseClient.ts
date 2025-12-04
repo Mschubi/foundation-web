@@ -1,7 +1,7 @@
-import { createBrowserClient } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js';
 
 // Client-side supabase instance. Uses public anon key.
-export const supabase = createBrowserClient(
+export const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL || '',
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
 );
@@ -10,5 +10,5 @@ export const supabase = createBrowserClient(
 export function createServerSupabase() {
   const supabaseUrl = process.env.SUPABASE_URL || '';
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
-  return createBrowserClient(supabaseUrl, supabaseKey);
+  return createClient(supabaseUrl, supabaseKey);
 }
